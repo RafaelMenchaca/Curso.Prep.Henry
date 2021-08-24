@@ -22,7 +22,7 @@ function mayoriaDeEdad(edad) {
   if (edad >= 18){
     return 'Allowed';
   }
-  return 'Not Allowed';
+  return 'Not allowed';
 }
 mayoriaDeEdad(19);
   
@@ -32,7 +32,14 @@ function conection(status) {
   //Cuando el estado es igual a 2, el usuario está "Away"
   //De lo contrario, presumimos que el usuario está "Offline"
   //Devolver el estado de conexión de usuario en cada uno de los casos.
+  if (status === 1){
+    return 'Online';
+  } else if (status === 2){
+    return 'Away';
+  }
+  return 'Offline';
 }
+conection(2);
 
 function saludo(idioma) {
   // Devuelve un saludo en tres diferentes lenguajes:
@@ -41,7 +48,16 @@ function saludo(idioma) {
   // Si "idioma" es "ingles", devuelve "Hello!"
   // Si "idioma" no es ninguno de los anteiores o es `undefined` devuelve "Hola!"
   // Tu código:
+  if (idioma === 'aleman'){
+    return 'Guten Tag!';
+  } else if (idioma === 'mandarin'){
+    return 'Ni Hao!';
+  } else if (idioma === 'ingles'){
+    return 'Hello!'
+  } else if (idioma !== 'aleman' || idioma !== 'mandarin' || idioma !== 'ingles' || idioma === undefined);
+  return 'Hola!'  
 }
+saludo('ingles');
 
 function colors(color) {
   //La función recibe un color. Devolver el string correspondiente:
@@ -51,19 +67,50 @@ function colors(color) {
   //En caso que el color recibido sea "orange", devuleve --> "This is orange"
   //Caso default: devuelve --> "Color not found"
   //Usar el statement Switch.
+  switch(color){
+    case 'blue':
+      return 'This is blue';
+      break;
+    case 'red':
+      return 'This is red';
+      break;
+    case 'green':
+      return 'This is green';
+      break;
+    case 'orange':
+      return 'This is orange';
+      break;
+    default:
+      return 'Color not found';
+  }
 }
+colors('orange');
 
 function esDiezOCinco(numero) {
   // Devuelve "true" si "numero" es 10 o 5
   // De lo contrario, devuelve "false"
   // Tu código:
+  switch(numero){
+    case 10:
+    case 5:
+      return true;
+      break;
+    default:
+      return false;
+  }
 }
+esDiezOCinco(10);
 
 function estaEnRango(numero) {
   // Devuelve "true" si "numero" es menor que 50 y mayor que 20
   // De lo contrario, devuelve "false"
   // Tu código:
+  if(numero < 50 && numero > 20){
+    return true;
+  }
+  return false;
 }
+estaEnRango(34);
 
 function esEntero(numero) {
   // Devuelve "true" si "numero" es un entero (int/integer)
@@ -73,14 +120,30 @@ function esEntero(numero) {
   // De lo contrario, devuelve "false"
   // Pista: Puedes resolver esto usando `Math.floor`
   // Tu código:
+  if (Number.isInteger(numero)){
+    return true;
+  }
+  return false;
 }
+esEntero(-19);
 
 function fizzBuzz(numero) {
   // Si "numero" es divisible entre 3, devuelve "fizz"
   // Si "numero" es divisible entre 5, devuelve "buzz"
   // Si "numero" es divisible entre 3 y 5 (ambos), devuelve "fizzbuzz"
   // De lo contrario, devuelve el numero
+
+  if (numero % 3 === 0 && numero % 5 === 0){
+    return 'fizzbuzz';
+  } else if (numero % 3 === 0){
+    return 'fizz';
+  } else if (numero % 5 === 0){
+    return 'buzz';
+  } 
+  return numero;
+
 }
+fizzBuzz(3);
 
 function operadoresLogicos(num1, num2, num3) {
   //La función recibe tres números distintos. 
@@ -89,7 +152,23 @@ function operadoresLogicos(num1, num2, num3) {
   //Si num3 es más grande que num1 y num2, aumentar su valor en 1 y retornar el nuevo valor.
   //0 no es ni positivo ni negativo. Si alguno de los argumentos es 0, retornar "Error".
   //Si no se cumplen ninguna de las condiciones anteriores, retornar false. 
+
+  if (Math.sign(num1) === 0 || Math.sign(num2) === 0 || Math.sign(num3) === 0){
+    return 'Error';
+  } 
+  else if (Math.sign(num1) === -1 || Math.sign(num2) === -1 || Math.sign(num3) === -1){
+    return 'Hay negativos'; 
+  } 
+  else if (num1 > num2 && num1 > num3 && Math.sign(num1) === 1){
+    return 'Número 1 es mayor y positivo'; 
+  } 
+  else if (num3 > num1 && num3 > num2){
+    var numTresAumentado = num3 + 1;
+    return numTresAumentado; 
+  }
+  return false;
 }
+operadoresLogicos(10, 34, 59);
 
 function esPrimo(numero) {
   // Devuelve "true" si "numero" es primo
