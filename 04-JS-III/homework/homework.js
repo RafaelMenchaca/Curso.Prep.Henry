@@ -3,34 +3,49 @@
 function devolverPrimerElemento(array) {
   // Devuelve el primer elemento de un  array (pasado por parametro)
   // Tu código:
+  return array[0];
 }
+devolverPrimerElemento([10, 15, 56, 89]);
 
 
 function devolverUltimoElemento(array) {
   // Devuelve el último elemento de un array
   // Tu código:
+  return array[array.length - 1];
 }
+devolverUltimoElemento([5, 6, 3, 1]);
 
 
 function obtenerLargoDelArray(array) {
   // Devuelve el largo de un array
   // Tu código:
+  return array.length;
 }
-
+ obtenerLargoDelArray([10, 15, 56, 89]);
 
 function incrementarPorUno(array) {
   // "array" debe ser una matriz de enteros (int/integers)
   // Aumenta cada entero por 1
   // y devuelve el array
   // Tu código:
+  for (let i = 0; i < array.length; i++) {
+    let suma = array[i] + 1;
+    array[i] = suma;
+    // console.log(array);
 }
+  return array;   
+}
+incrementarPorUno([1, 2, 3, 4, 5, 6, 7]);
 
 
 function agregarItemAlFinalDelArray(array, elemento) {
   // Añade el "elemento" al final del array
   // y devuelve el array
   // Tu código:
+  array.push(elemento);
+  return array;
 }
+agregarItemAlFinalDelArray([1, 2, 3, 4, 5, 6, 7], 19);
 
 
 function agregarItemAlComienzoDelArray(array, elemento) {
@@ -38,7 +53,10 @@ function agregarItemAlComienzoDelArray(array, elemento) {
   // y devuelve el array
   // Pista: usa el método `.unshift`
   // Tu código:
+  array.unshift(elemento);
+  return array;
 }
+agregarItemAlComienzoDelArray([1, 2, 3, 4, 5, 6, 7], 19);
 
 
 function dePalabrasAFrase(palabras) {
@@ -47,21 +65,49 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
+  for (let i = 0; i < palabras.length; i++) {
+    if (i === 0){
+      var string1 = palabras[i];
+    } else if ( i === 1){
+      var string2 = palabras[i];
+    } else if (i === 2){
+      var string3 = palabras[i];
+    }    
+} 
+  if (palabras.length === 1){
+  return string1;
+  }
+  else if (string1.length >= 1 && string2.length >= 1 && string3.length >= 1){
+  return string1 + ' ' +   string2 + ' ' +  string3;
+  } 
+
 }
+dePalabrasAFrase(['Henry', 'JavaScript', 'Class']);
 
 
 function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
+  if (array.includes(elemento)){
+    return true;
+  }
+    return false;
 }
+arrayContiene([1, 2, 3, 4, 5, 6, 7], 4);
 
 
 function agregarNumeros(numeros) {
   // "numeros" debe ser un arreglo de enteros (int/integers)
   // Suma todos los enteros y devuelve el valor
   // Tu código:
+  var arreglo = numeros, suma = 0;
+  arreglo.forEach (function(numero){
+      suma += numero;
+  });
+  return suma;
 }
+agregarNumeros([1, 2, 3, 4, 5, 6]);
 
 
 function promedioResultadosTest(resultadosTest) {
